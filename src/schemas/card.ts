@@ -56,6 +56,11 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      title: 'Order Number',
+      name: 'orderNumber',
+      type: 'number',
+    }),
   ],
   preview: {
     select: {
