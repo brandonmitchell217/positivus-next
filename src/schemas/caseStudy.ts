@@ -1,25 +1,27 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'header',
-  title: 'Section Header',
+  name: 'caseStudy',
+  title: 'Case Study',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      rows: 5,
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'blockContent',
+      title: 'Order Number',
+      name: 'orderNumber',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'orderNumber',
       author: 'author.name',
     },
     prepare(selection) {

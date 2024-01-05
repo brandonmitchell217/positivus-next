@@ -1,3 +1,4 @@
+import { PortableText } from '@portabletext/react'
 import React from 'react'
 
 import { Header } from '~/lib/sanity.queries'
@@ -8,7 +9,11 @@ export default function SectionHeader({ header }: { header: Header }) {
       <h2 className="bg-green md:px-1 inline-block text-4.5xl leading-[1.15] rounded-[7px]">
         {header.title}
       </h2>
-      {header.excerpt && <p className="max-w-[520px]">{header.excerpt}</p>}
+      {header.excerpt && (
+        <div className="max-w-[520px]">
+          <PortableText value={header.excerpt} />
+        </div>
+      )}
     </div>
   )
 }

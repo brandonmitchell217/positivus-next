@@ -2,6 +2,7 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useLiveQuery } from 'next-sanity/preview'
 
 import ServiceCard from '~/components/Card/ServiceCard'
+import CaseStudies from '~/components/CaseStudies'
 import FlexLanding from '~/components/FlexLanding'
 import HomeCta from '~/components/HomeCta'
 import PartnerImages from '~/components/PartnerImages'
@@ -9,8 +10,11 @@ import SectionHeader from '~/components/SectionHeader'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
+  caseStudiesQuery,
+  type CaseStudy,
   type Cta,
   ctasQuery,
+  getCaseStudies,
   getCtas,
   getHeaders,
   getPartners,
@@ -34,6 +38,7 @@ export const getStaticProps = async ({ draftMode = false }) => {
   const partners = await getPartners(client)
   const headers = await getHeaders(client)
   const serviceCards = await getServiceCards(client)
+  const caseStudies = await getCaseStudies(client)
 
   // console.log(serviceCards)
 
@@ -46,6 +51,7 @@ export const getStaticProps = async ({ draftMode = false }) => {
       partners,
       headers,
       serviceCards,
+      caseStudies,
     },
   }
 }
@@ -61,7 +67,12 @@ export default function IndexPage(
     props.serviceCards,
     serviceCardsQuery,
   )
+  const [caseStudies] = useLiveQuery<CaseStudy[]>(
+    props.caseStudies,
+    caseStudiesQuery,
+  )
 
+  // Landing & CTA
   const landing = ctas?.find(
     (cta) => cta.slug.current.toLowerCase() === 'landing',
   )
@@ -69,14 +80,18 @@ export default function IndexPage(
     (cta) => cta.slug.current.toLowerCase() === 'home-cta',
   )
 
+  // Section Headers
   const serviceHeader = headers?.find(
     (header) => header.title.toLowerCase() === 'services',
   )
   const caseStudyHeader = headers?.find(
     (header) => header.title.toLowerCase() === 'case studies',
   )
+  const workingProcessHeader = headers?.find(
+    (header) => header.title.toLowerCase() === 'our working process',
+  )
 
-  console.log(caseStudyHeader)
+  // console.log(workingProcessHeader)
 
   return (
     <main>
@@ -97,6 +112,10 @@ export default function IndexPage(
       </section>
       <section className="py-32">
         <SectionHeader header={caseStudyHeader} />
+        <CaseStudies caseStudies={caseStudies} />
+      </section>
+      <section>
+        <SectionHeader header={workingProcessHeader} />
       </section>
     </main>
   )

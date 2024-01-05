@@ -14,10 +14,26 @@
   h6 {
     @apply font-medium;
   }
+
+  a {
+    @apply cursor-pointer;
+  }
 }
 
 @layer components {
   .container {
     @apply px-4 lg:px-0;
+  }
+
+  .caseStudy:not(:last-child)::before {
+    background-color: #fff;
+    border-radius: 20px;
+    content: '';
+    height: 100%;
+    position: absolute;
+    right: -23%;
+    top: 0;
+    transform: translate(23%);
+    width: 2px;
   }
 }
