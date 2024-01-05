@@ -10,6 +10,7 @@ import SectionHeader from '~/components/SectionHeader'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
+  caseStudiesQuery,
   type CaseStudy,
   type Cta,
   ctasQuery,
@@ -27,7 +28,6 @@ import {
   postsQuery,
   ServiceCardProps,
   serviceCardsQuery,
-  caseStudiesQuery,
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
