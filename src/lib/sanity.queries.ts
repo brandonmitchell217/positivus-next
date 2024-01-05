@@ -7,7 +7,8 @@ export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | ord
 export const ctasQuery = groq`*[_type == "cta"]`
 export const partnersQuery = groq`*[_type == "partner"] | order(_createdAt asc)`
 export const headersQuery = groq`*[_type == "header"] | order(_createdAt asc)`
-export const serviceCardsQuery = groq`*[_type == "card"] | order(order asc)`
+export const serviceCardsQuery = groq`*[_type == "card"] | order(orderNumber asc)`
+export const caseStudiesQuery = groq`*[_type == "caseStudy"] | order(orderNumber asc)`
 
 export async function getPosts(client: SanityClient): Promise<Post[]> {
   return await client.fetch(postsQuery)
@@ -25,6 +26,11 @@ export async function getServiceCards(
   client: SanityClient,
 ): Promise<ServiceCardProps[]> {
   return await client.fetch(serviceCardsQuery)
+}
+export async function getCaseStudies(
+  client: SanityClient,
+): Promise<CaseStudy[]> {
+  return await client.fetch(caseStudiesQuery)
 }
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
@@ -102,5 +108,13 @@ export interface Header {
   _id: string
   _createdAt: string
   title: string
-  excerpt?: string
+  excerpt?: PortableTextBlock[]
+}
+
+export interface CaseStudy {
+  _type: 'caseStudy'
+  _id: string
+  _createdAt: string
+  excerpt: string
+  orderNumber: number
 }

@@ -28,7 +28,8 @@
     "react-dom": "18.2.0",
     "sanity": "^3.23.4",
     "sanity-plugin-iframe-pane": "2.6.1",
-    "styled-components": "^6.1.6"
+    "styled-components": "^6.1.6",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
