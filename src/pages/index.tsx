@@ -1,21 +1,29 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Image from 'next/image'
 import { useLiveQuery } from 'next-sanity/preview'
 
-import Card from '~/components/Card'
-import Container from '~/components/Container'
-import Button from '~/components/studio/Button'
-import Welcome from '~/components/Welcome'
+import ServiceCard from '~/components/Card/ServiceCard'
+import FlexLanding from '~/components/FlexLanding'
+import HomeCta from '~/components/HomeCta'
+import PartnerImages from '~/components/PartnerImages'
+import SectionHeader from '~/components/SectionHeader'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { urlForImage } from '~/lib/sanity.image'
 import {
   type Cta,
   ctasQuery,
   getCtas,
+  getHeaders,
+  getPartners,
   getPosts,
+  getServiceCards,
+  type Header,
+  headersQuery,
+  Partner,
+  partnersQuery,
   type Post,
   postsQuery,
+  ServiceCardProps,
+  serviceCardsQuery,
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
@@ -23,8 +31,11 @@ export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
   const posts = await getPosts(client)
   const ctas = await getCtas(client)
+  const partners = await getPartners(client)
+  const headers = await getHeaders(client)
+  const serviceCards = await getServiceCards(client)
 
-  // console.log(ctas)
+  // console.log(serviceCards)
 
   return {
     props: {
@@ -32,6 +43,9 @@ export const getStaticProps = async ({ draftMode = false }) => {
       token: draftMode ? readToken : '',
       posts,
       ctas,
+      partners,
+      headers,
+      serviceCards,
     },
   }
 }
@@ -41,45 +55,49 @@ export default function IndexPage(
 ) {
   const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
   const [ctas] = useLiveQuery<Cta[]>(props.ctas, ctasQuery)
+  const [partners] = useLiveQuery<Partner[]>(props.partners, partnersQuery)
+  const [headers] = useLiveQuery<Header[]>(props.headers, headersQuery)
+  const [serviceCards] = useLiveQuery<ServiceCardProps[]>(
+    props.serviceCards,
+    serviceCardsQuery,
+  )
 
-  const landing = ctas?.find((cta) => cta.slug.current === 'landing')
-  const landing1 = ctas?.filter((cta) => cta.slug.current === 'landing')
+  const landing = ctas?.find(
+    (cta) => cta.slug.current.toLowerCase() === 'landing',
+  )
+  const homeCta = ctas?.find(
+    (cta) => cta.slug.current.toLowerCase() === 'home-cta',
+  )
 
-  console.log(ctas)
+  const serviceHeader = headers?.find(
+    (header) => header.title.toLowerCase() === 'services',
+  )
+  const caseStudyHeader = headers?.find(
+    (header) => header.title.toLowerCase() === 'case studies',
+  )
+
+  console.log(caseStudyHeader)
 
   return (
-    <Container>
+    <main>
+      <section className="py-32">
+        <FlexLanding landing={landing} />
+        <PartnerImages partners={partners} />
+      </section>
       <section>
-        {/* {posts.length ? (
-          posts.map((post) => <Card key={post._id} post={post} />)
-        ) : (
-          <Welcome />
-        )} */}
-        <div className="container">
-          <div className="flex justify-center">
-            <div className="flex-[0.8] space-y-4">
-              <h1 className="text-[42px] leading-tight font-bold max-w-[65%]">
-                {landing?.title}
-              </h1>
-              <p className="text-xl">{landing?.excerpt}</p>
-              <div className="py-4">
-                <Button href={landing?.buttonUrl}>{landing?.buttonText}</Button>
-              </div>
-            </div>
-            <div className="">
-              <Image
-                src={urlForImage(landing?.mainImage)
-                  .width(594)
-                  .height(503)
-                  .url()}
-                height={503}
-                width={594}
-                alt="dfafef aefef"
-              />
-            </div>
-          </div>
+        <SectionHeader header={serviceHeader} />
+        <div className="container py-20 flex flex-wrap gap-12">
+          {serviceCards?.map((card) => (
+            <ServiceCard key={card.orderNumber} card={card} />
+          ))}
         </div>
       </section>
-    </Container>
+      <section>
+        <HomeCta cta={homeCta} />
+      </section>
+      <section className="py-32">
+        <SectionHeader header={caseStudyHeader} />
+      </section>
+    </main>
   )
 }

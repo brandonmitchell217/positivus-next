@@ -27,6 +27,9 @@ module.exports = {
         '45xl': '2.813rem',
         'xl.5': '0.875rem',
       },
+      boxShadow: {
+        '3xl': '0 5px 0 #191a23',
+      },
     },
     animation: {
       'spin-slow': 'spin 3s linear infinite',
