@@ -1,5 +1,6 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useLiveQuery } from 'next-sanity/preview'
+import Accordion from '~/components/Accordion'
 
 import ServiceCard from '~/components/Card/ServiceCard'
 import CaseStudies from '~/components/CaseStudies'
@@ -116,6 +117,7 @@ export default function IndexPage(
       </section>
       <section>
         <SectionHeader header={workingProcessHeader} />
+        <Accordion />
       </section>
     </main>
   )

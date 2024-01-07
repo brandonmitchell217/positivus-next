@@ -1,5 +1,6 @@
 import { SchemaTypeDefinition } from 'sanity'
 
+import accordion from './accordion'
 import blockContent from './blockContent'
 import card from './card'
 import caseStudy from './caseStudy'
@@ -17,8 +18,19 @@ export const schemaTypes = [
   partner,
   card,
   caseStudy,
+  accordion,
   blockContent,
 ]
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, landing, cta, header, partner, card, caseStudy, blockContent],
+  types: [
+    post,
+    landing,
+    cta,
+    header,
+    partner,
+    card,
+    caseStudy,
+    accordion,
+    blockContent,
+  ],
 }
