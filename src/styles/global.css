@@ -31,9 +31,15 @@
     content: '';
     height: 100%;
     position: absolute;
-    right: -23%;
     top: 0;
-    transform: translate(23%);
+    right: 1%;
+    transform: translate(1%);
     width: 2px;
+  }
+  @media screen and (min-width: 1280px) {
+    .caseStudy:not(:last-child)::before {
+      right: -23%;
+      transform: translate(23%);
+    }
   }
 }

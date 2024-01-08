@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useLiveQuery } from 'next-sanity/preview'
-import Accordion from '~/components/Accordion'
 
+import Accordion from '~/components/Accordion'
 import ServiceCard from '~/components/Card/ServiceCard'
 import CaseStudies from '~/components/CaseStudies'
 import FlexLanding from '~/components/FlexLanding'
@@ -11,10 +11,13 @@ import SectionHeader from '~/components/SectionHeader'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
+  AccordionProps,
+  accordionsQuery,
   caseStudiesQuery,
   type CaseStudy,
   type Cta,
   ctasQuery,
+  getAccordionItems,
   getCaseStudies,
   getCtas,
   getHeaders,
@@ -40,6 +43,7 @@ export const getStaticProps = async ({ draftMode = false }) => {
   const headers = await getHeaders(client)
   const serviceCards = await getServiceCards(client)
   const caseStudies = await getCaseStudies(client)
+  const accordions = await getAccordionItems(client)
 
   // console.log(serviceCards)
 
@@ -53,6 +57,7 @@ export const getStaticProps = async ({ draftMode = false }) => {
       headers,
       serviceCards,
       caseStudies,
+      accordions,
     },
   }
 }
@@ -72,6 +77,12 @@ export default function IndexPage(
     props.caseStudies,
     caseStudiesQuery,
   )
+  const [accordions] = useLiveQuery<AccordionProps[]>(
+    props.accordions,
+    accordionsQuery,
+  )
+
+  // console.log(accordions)
 
   // Landing & CTA
   const landing = ctas?.find(
@@ -90,6 +101,9 @@ export default function IndexPage(
   )
   const workingProcessHeader = headers?.find(
     (header) => header.title.toLowerCase() === 'our working process',
+  )
+  const teamHeader = headers?.find(
+    (header) => header.title.toLowerCase() === 'team',
   )
 
   // console.log(workingProcessHeader)
@@ -117,7 +131,10 @@ export default function IndexPage(
       </section>
       <section>
         <SectionHeader header={workingProcessHeader} />
-        <Accordion />
+        <Accordion accordions={accordions} />
+      </section>
+      <section>
+        <SectionHeader header={teamHeader} />
       </section>
     </main>
   )

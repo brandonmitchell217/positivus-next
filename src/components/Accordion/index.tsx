@@ -1,13 +1,18 @@
 'use client'
 import React, { useState } from 'react'
 
+import { AccordionProps } from '~/lib/sanity.queries'
+
 import AccordionItem from './AccordionItem'
 
 // { title, children }
 
-export default function Accordion() {
+export default function Accordion({
+  accordions,
+}: {
+  accordions: AccordionProps[]
+}) {
   const [isOpen, setOpen] = useState<string>('')
-  const titles = ['title1', 'title2', 'title3', 'title4', 'title5']
 
   const handleOpen = (title: string) => {
     setOpen(isOpen === title ? '' : title)
@@ -15,10 +20,10 @@ export default function Accordion() {
   return (
     <div className="container py-16">
       <div className="flex flex-col gap-5 lg:gap-10">
-        {titles.map((title, index) => (
+        {accordions.map((accordion) => (
           <AccordionItem
-            key={index}
-            title={title}
+            key={accordion.orderNumber}
+            accordion={accordion}
             open={isOpen}
             toggle={handleOpen}
           />
