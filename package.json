@@ -29,7 +29,8 @@
     "sanity": "^3.23.4",
     "sanity-plugin-iframe-pane": "2.6.1",
     "styled-components": "^6.1.6",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "usehooks-ts": "^2.9.2"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",

@@ -9,6 +9,7 @@ export const partnersQuery = groq`*[_type == "partner"] | order(_createdAt asc)`
 export const headersQuery = groq`*[_type == "header"] | order(_createdAt asc)`
 export const serviceCardsQuery = groq`*[_type == "card"] | order(orderNumber asc)`
 export const caseStudiesQuery = groq`*[_type == "caseStudy"] | order(orderNumber asc)`
+export const accordionsQuery = groq`*[_type == "accordion"] | order(orderNumber asc)`
 
 export async function getPosts(client: SanityClient): Promise<Post[]> {
   return await client.fetch(postsQuery)
@@ -31,6 +32,11 @@ export async function getCaseStudies(
   client: SanityClient,
 ): Promise<CaseStudy[]> {
   return await client.fetch(caseStudiesQuery)
+}
+export async function getAccordionItems(
+  client: SanityClient,
+): Promise<AccordionProps[]> {
+  return await client.fetch(accordionsQuery)
 }
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
@@ -117,4 +123,13 @@ export interface CaseStudy {
   _createdAt: string
   excerpt: string
   orderNumber: number
+}
+
+export interface AccordionProps {
+  _type: 'accordion'
+  _id: string
+  _createdAt: string
+  title: string
+  excerpt?: string
+  orderNumber?: number
 }
