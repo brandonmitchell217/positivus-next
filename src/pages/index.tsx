@@ -3,11 +3,13 @@ import { useLiveQuery } from 'next-sanity/preview'
 
 import Accordion from '~/components/Accordion'
 import ServiceCard from '~/components/Card/ServiceCard'
+import TeamBio from '~/components/Card/TeamBio'
 import CaseStudies from '~/components/CaseStudies'
 import FlexLanding from '~/components/FlexLanding'
 import HomeCta from '~/components/HomeCta'
 import PartnerImages from '~/components/PartnerImages'
 import SectionHeader from '~/components/SectionHeader'
+import TestimoialCarousel from '~/components/Testimonials'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
@@ -24,6 +26,8 @@ import {
   getPartners,
   getPosts,
   getServiceCards,
+  getTeamMembers,
+  getTestimonials,
   type Header,
   headersQuery,
   Partner,
@@ -32,6 +36,10 @@ import {
   postsQuery,
   ServiceCardProps,
   serviceCardsQuery,
+  TeamMemberProps,
+  teamMembersQuery,
+  TestimonialProps,
+  testimonialsQuery,
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
@@ -44,6 +52,8 @@ export const getStaticProps = async ({ draftMode = false }) => {
   const serviceCards = await getServiceCards(client)
   const caseStudies = await getCaseStudies(client)
   const accordions = await getAccordionItems(client)
+  const bios = await getTeamMembers(client)
+  const testimonials = await getTestimonials(client)
 
   // console.log(serviceCards)
 
@@ -58,6 +68,8 @@ export const getStaticProps = async ({ draftMode = false }) => {
       serviceCards,
       caseStudies,
       accordions,
+      bios,
+      testimonials,
     },
   }
 }
@@ -81,8 +93,13 @@ export default function IndexPage(
     props.accordions,
     accordionsQuery,
   )
+  const [bios] = useLiveQuery<TeamMemberProps[]>(props.bios, teamMembersQuery)
+  const [testimonials] = useLiveQuery<TestimonialProps[]>(
+    props.testimonials,
+    testimonialsQuery,
+  )
 
-  // console.log(accordions)
+  // console.log(testimonials)
 
   // Landing & CTA
   const landing = ctas?.find(
@@ -104,6 +121,12 @@ export default function IndexPage(
   )
   const teamHeader = headers?.find(
     (header) => header.title.toLowerCase() === 'team',
+  )
+  const testimonialHeader = headers?.find(
+    (header) => header.title.toLowerCase() === 'testimonials',
+  )
+  const contactHeader = headers?.find(
+    (header) => header.title.toLowerCase() === 'contact us',
   )
 
   // console.log(workingProcessHeader)
@@ -135,6 +158,18 @@ export default function IndexPage(
       </section>
       <section>
         <SectionHeader header={teamHeader} />
+        <div className="grid grid-cols-2 xl:grid-cols-3 place-items-center gap-10">
+          {bios?.map((bio) => (
+            <TeamBio key={bio.orderNumber} teamMember={bio} />
+          ))}
+        </div>
+      </section>
+      <section>
+        <SectionHeader header={testimonialHeader} />
+        <TestimoialCarousel testimonials={testimonials} />
+      </section>
+      <section>
+        <SectionHeader header={contactHeader} />
       </section>
     </main>
   )

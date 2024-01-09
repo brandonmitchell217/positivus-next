@@ -10,6 +10,8 @@ export const headersQuery = groq`*[_type == "header"] | order(_createdAt asc)`
 export const serviceCardsQuery = groq`*[_type == "card"] | order(orderNumber asc)`
 export const caseStudiesQuery = groq`*[_type == "caseStudy"] | order(orderNumber asc)`
 export const accordionsQuery = groq`*[_type == "accordion"] | order(orderNumber asc)`
+export const teamMembersQuery = groq`*[_type == "teamBio"] | order(orderNumber asc)`
+export const testimonialsQuery = groq`*[_type == "testimonial"] | order(orderNumber asc)`
 
 export async function getPosts(client: SanityClient): Promise<Post[]> {
   return await client.fetch(postsQuery)
@@ -37,6 +39,16 @@ export async function getAccordionItems(
   client: SanityClient,
 ): Promise<AccordionProps[]> {
   return await client.fetch(accordionsQuery)
+}
+export async function getTeamMembers(
+  client: SanityClient,
+): Promise<TeamMemberProps[]> {
+  return await client.fetch(teamMembersQuery)
+}
+export async function getTestimonials(
+  client: SanityClient,
+): Promise<TestimonialProps[]> {
+  return await client.fetch(testimonialsQuery)
 }
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
@@ -132,4 +144,25 @@ export interface AccordionProps {
   title: string
   excerpt?: string
   orderNumber?: number
+}
+
+export interface TeamMemberProps {
+  _type: 'teamBio'
+  _id: string
+  _createdAt: string
+  name: string
+  position: string
+  excerpt?: string
+  image?: ImageAsset
+  orderNumber?: number
+}
+
+export interface TestimonialProps {
+  _type: 'testimonial'
+  _id: string
+  _createdAt: string
+  excerpt: string
+  name: string
+  position: string
+  orderNumber: number
 }

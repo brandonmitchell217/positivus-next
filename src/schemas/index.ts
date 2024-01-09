@@ -9,6 +9,8 @@ import header from './header'
 import landing from './landing'
 import partner from './partner'
 import post from './post'
+import teamBio from './teamBio'
+import testimonial from './testimonial'
 
 export const schemaTypes = [
   post,
@@ -19,6 +21,8 @@ export const schemaTypes = [
   card,
   caseStudy,
   accordion,
+  teamBio,
+  testimonial,
   blockContent,
 ]
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -31,6 +35,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     card,
     caseStudy,
     accordion,
+    teamBio,
+    testimonial,
     blockContent,
   ],
 }
