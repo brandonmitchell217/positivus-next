@@ -43,3 +43,45 @@
     }
   }
 }
+.testimonial {
+  background-image: url('../assets/bubble_mobile.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media screen and (min-width: 768px) {
+  .testimonial {
+    background-image: url('../assets/bubble.png');
+    background-size: cover;
+  }
+}
+.swiper-pagination {
+  display: flex !important;
+  justify-content: center;
+  gap: 10px;
+  bottom: 3rem !important;
+}
+.pagination-bullet {
+  display: block;
+  height: 14px;
+  width: 14px;
+  background-image: url('../assets/carousel_star.svg') !important;
+  background-size: cover;
+}
+.pagination-bullet-active {
+  background-image: url('../assets/carousel_star-active.svg') !important;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 3rem;
+  transform: translateX(-25%);
+  z-index: 1;
+  cursor: pointer;
+}
+.arrow-left {
+  left: 25%;
+}
+.arrow-right {
+  right: 25%;
+}

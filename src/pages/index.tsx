@@ -158,7 +158,7 @@ export default function IndexPage(
       </section>
       <section>
         <SectionHeader header={teamHeader} />
-        <div className="grid grid-cols-2 xl:grid-cols-3 place-items-center gap-10">
+        <div className="container grid grid-cols-2 xl:grid-cols-3 place-items-center gap-10">
           {bios?.map((bio) => (
             <TeamBio key={bio.orderNumber} teamMember={bio} />
           ))}
