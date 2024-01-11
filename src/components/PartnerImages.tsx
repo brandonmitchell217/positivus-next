@@ -6,7 +6,7 @@ import { Partner } from '~/lib/sanity.queries'
 
 export default function PartnerImages({ partners }: { partners: Partner[] }) {
   return (
-    <div className="container pt-16 grid grid-cols-6 place-items-center">
+    <div className="grid grid-cols-6 place-items-center">
       {partners?.map((partner) => (
         <div key={partner._id}>
           <Image

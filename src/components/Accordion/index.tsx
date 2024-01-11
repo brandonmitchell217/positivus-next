@@ -18,17 +18,15 @@ export default function Accordion({
     setOpen(isOpen === title ? '' : title)
   }
   return (
-    <div className="container py-16">
-      <div className="flex flex-col gap-5 lg:gap-10">
-        {accordions.map((accordion) => (
-          <AccordionItem
-            key={accordion.orderNumber}
-            accordion={accordion}
-            open={isOpen}
-            toggle={handleOpen}
-          />
-        ))}
-      </div>
+    <div className="flex flex-col gap-5 lg:gap-10">
+      {accordions.map((accordion) => (
+        <AccordionItem
+          key={accordion.orderNumber}
+          accordion={accordion}
+          open={isOpen}
+          toggle={handleOpen}
+        />
+      ))}
     </div>
   )
 }
