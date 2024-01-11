@@ -12,7 +12,7 @@ export default function ServiceCard({ card }: { card: ServiceCardProps }) {
 
   return (
     <div
-      className={`relative card-${card.orderNumber} p-[50px] min-w-[600px] h-[310px] border border-dark rounded-45xl shadow-3xl`}
+      className={`relative card-${card.orderNumber} p-[50px]  w-full xl:max-w-[600px] h-[310px] border border-dark rounded-45xl shadow-3xl`}
     >
       <div className="space-y-[93px]">
         <h3 className="flex flex-col items-start text-2xl lg:text-3xl leading-relaxed">
@@ -30,7 +30,7 @@ export default function ServiceCard({ card }: { card: ServiceCardProps }) {
       <Image
         src={urlForImage(card.image).url()}
         alt="Illustration for services"
-        className="absolute top-1/2 right-[50px] -translate-y-1/2"
+        className="absolute w-[180px] h-auto md:w-[120px] md:h-auto lg:w-[210px] bottom-[50px] right-[50px]"
         width={210}
         height={210}
       />

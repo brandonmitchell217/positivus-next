@@ -43,6 +43,14 @@
     }
   }
 }
+.sectionHeader p br {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .sectionHeader p br {
+    display: block;
+  }
+}
 .testimonial {
   background-image: url('../assets/bubble_mobile.png');
   background-size: contain;
@@ -56,6 +64,8 @@
   }
 }
 .swiper-pagination {
+  position: relative;
+  z-index: 100;
   display: flex !important;
   justify-content: center;
   gap: 10px;
@@ -65,11 +75,12 @@
   display: block;
   height: 14px;
   width: 14px;
-  background-image: url('../assets/carousel_star.svg') !important;
+  background-image: url('../assets/carousel_star.svg');
   background-size: cover;
+  cursor: pointer;
 }
 .pagination-bullet-active {
-  background-image: url('../assets/carousel_star-active.svg') !important;
+  background-image: url('../assets/carousel_star-active.svg');
 }
 
 .arrow {

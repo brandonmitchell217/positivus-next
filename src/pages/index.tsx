@@ -10,6 +10,7 @@ import HomeCta from '~/components/HomeCta'
 import PartnerImages from '~/components/PartnerImages'
 import SectionHeader from '~/components/SectionHeader'
 import TestimoialCarousel from '~/components/Testimonials'
+import Container from '~/components/ui/Container'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
@@ -131,42 +132,54 @@ export default function IndexPage(
 
   // console.log(workingProcessHeader)
 
+  // TODO: Section padding
+
   return (
     <main>
-      <section className="py-32">
+      <section className="pt-40">
         <FlexLanding landing={landing} />
-        <PartnerImages partners={partners} />
+        <Container className="py-16">
+          <PartnerImages partners={partners} />
+        </Container>
       </section>
       <section>
         <SectionHeader header={serviceHeader} />
-        <div className="container py-20 flex flex-wrap gap-12">
+        <Container className="py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
           {serviceCards?.map((card) => (
             <ServiceCard key={card.orderNumber} card={card} />
           ))}
-        </div>
+        </Container>
       </section>
       <section>
-        <HomeCta cta={homeCta} />
+        <Container className="pb-20">
+          <HomeCta cta={homeCta} />
+        </Container>
       </section>
-      <section className="py-32">
+      <section>
         <SectionHeader header={caseStudyHeader} />
-        <CaseStudies caseStudies={caseStudies} />
+        <Container className="pb-20">
+          <CaseStudies caseStudies={caseStudies} />
+        </Container>
       </section>
       <section>
         <SectionHeader header={workingProcessHeader} />
-        <Accordion accordions={accordions} />
+        <Container className="py-20">
+          <Accordion accordions={accordions} />
+        </Container>
       </section>
       <section>
         <SectionHeader header={teamHeader} />
-        <div className="container grid grid-cols-2 xl:grid-cols-3 place-items-center gap-10">
+        <Container className="py-20 grid grid-cols-2 xl:grid-cols-3 place-items-center gap-10">
           {bios?.map((bio) => (
             <TeamBio key={bio.orderNumber} teamMember={bio} />
           ))}
-        </div>
+        </Container>
       </section>
       <section>
         <SectionHeader header={testimonialHeader} />
-        <TestimoialCarousel testimonials={testimonials} />
+        <Container className="py-20">
+          <TestimoialCarousel testimonials={testimonials} />
+        </Container>
       </section>
       <section>
         <SectionHeader header={contactHeader} />

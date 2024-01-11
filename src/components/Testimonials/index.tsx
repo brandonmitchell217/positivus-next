@@ -50,7 +50,7 @@ export default function TestimoialCarousel({
   }
 
   return (
-    <div className="relative container h-[568px] lg:h-[625px] bg-dark text-white rounded-45xl p-[30px] pb-0 md:p-0 md:pt-[84px]">
+    <div className="relative h-[568px] lg:h-[625px] bg-dark text-white rounded-45xl p-[30px] pb-0 md:p-0 md:pt-[84px]">
       <Swiper
         modules={[Navigation, Pagination]}
         onSwiper={(swiper) => {
@@ -58,7 +58,7 @@ export default function TestimoialCarousel({
         }}
         spaceBetween={10}
         slidesPerView={1}
-        initialSlide={3}
+        initialSlide={1}
         centeredSlides={true}
         loop={true}
         navigation={{
@@ -83,11 +83,17 @@ export default function TestimoialCarousel({
             <TestimonialSlide testimonial={testimonial} />
           </SwiperSlide>
         ))}
-        <div className="absolute z-50 bottom-[2.5rem] w-full flex justify-evenly items-center">
-          <button onClick={() => swiperRef.current.slidePrev()}>
+        <div className="absolute z-50 bottom-[2.5rem] w-full flex justify-evenly items-center pointer-events-none">
+          <button
+            className="pointer-events-auto"
+            onClick={() => swiperRef.current.slidePrev()}
+          >
             <ArrowLeft size={32} />
           </button>
-          <button onClick={() => swiperRef.current.slideNext()}>
+          <button
+            className="pointer-events-auto"
+            onClick={() => swiperRef.current.slideNext()}
+          >
             <ArrowRight size={32} />
           </button>
         </div>

@@ -9,17 +9,19 @@ export default function MobileCarousel({
   caseStudies: CaseStudy[]
 }) {
   return (
-    <Swiper
-      spaceBetween={50}
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      {caseStudies.map((caseStudy) => (
-        <SwiperSlide key={caseStudy.orderNumber}>
-          {caseStudy.excerpt}
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="container">
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        {caseStudies.map((caseStudy) => (
+          <SwiperSlide key={caseStudy.orderNumber}>
+            <p>{caseStudy.excerpt}</p>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   )
 }
