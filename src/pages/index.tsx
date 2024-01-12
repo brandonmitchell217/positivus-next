@@ -5,10 +5,12 @@ import Accordion from '~/components/Accordion'
 import ServiceCard from '~/components/Card/ServiceCard'
 import TeamBio from '~/components/Card/TeamBio'
 import CaseStudies from '~/components/CaseStudies'
+import Contact from '~/components/Contact'
 import FlexLanding from '~/components/FlexLanding'
 import HomeCta from '~/components/HomeCta'
 import PartnerImages from '~/components/PartnerImages'
 import SectionHeader from '~/components/SectionHeader'
+import TeamContainer from '~/components/Team'
 import TestimoialCarousel from '~/components/Testimonials'
 import Container from '~/components/ui/Container'
 import { readToken } from '~/lib/sanity.api'
@@ -130,8 +132,6 @@ export default function IndexPage(
     (header) => header.title.toLowerCase() === 'contact us',
   )
 
-  // console.log(workingProcessHeader)
-
   // TODO: Section padding
 
   return (
@@ -169,10 +169,8 @@ export default function IndexPage(
       </section>
       <section>
         <SectionHeader header={teamHeader} />
-        <Container className="py-20 grid grid-cols-2 xl:grid-cols-3 place-items-center gap-10">
-          {bios?.map((bio) => (
-            <TeamBio key={bio.orderNumber} teamMember={bio} />
-          ))}
+        <Container className="py-20">
+          <TeamContainer team={bios} />
         </Container>
       </section>
       <section>
@@ -183,6 +181,9 @@ export default function IndexPage(
       </section>
       <section>
         <SectionHeader header={contactHeader} />
+        <Container className="py-20">
+          <Contact />
+        </Container>
       </section>
     </main>
   )
