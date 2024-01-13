@@ -39,7 +39,13 @@ export default function Nav() {
     <nav className="fixed z-40 top-0 left-0 right-0 pt-[30px] lg:pt-[60px] text-dark">
       <div className="container flex justify-between items-center">
         <Link href="/">
-          <Image src={Logo} alt="Positivus logo" width={220} height={36} />
+          <Image
+            src={Logo}
+            alt="Positivus logo"
+            width={220}
+            height={36}
+            className="w-[180px] h-auto lg:w-[220px]"
+          />
         </Link>
 
         <ul className="hidden lg:flex gap-10 items-center">

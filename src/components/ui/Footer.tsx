@@ -80,21 +80,48 @@ export default function Footer() {
               </div>
             </div>
           </div>
+          <div className="bg-darkAlt flex-1 rounded-xl.5 py-[58px] px-5 lg:px-10 w-full lg:w-auto">
+            <form className="flex flex-col lg:flex-row items-center gap-5">
+              <input
+                type="email"
+                id="footerEmail"
+                name="footerEmail"
+                placeholder="Email"
+                className="w-full lg:w-auto flex-1 rounded-xl.5 border py-4 px-3 text-base bg-transparent leading-8 transition-colors duration-200 ease-in-out placeholder:text-gray-500 focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-transparent"
+              />
+              <Button className="w-full lg:w-auto !bg-green !text-dark hover:!bg-dark hover:!text-green">
+                Subscribe to news
+              </Button>
+            </form>
+          </div>
         </div>
 
-        <div className="bg-darkAlt flex-1 rounded-xl.5 py-[58px] px-5 lg:px-10 w-full lg:w-auto">
-          <form className="flex flex-col lg:flex-row items-center gap-5">
-            <input
-              type="email"
-              id="footerEmail"
-              name="footerEmail"
-              placeholder="Email"
-              className="w-full lg:w-auto flex-1 rounded-xl.5 border py-4 px-3 text-base bg-transparent leading-8 transition-colors duration-200 ease-in-out placeholder:text-gray-500 focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-transparent"
-            />
-            <Button className="w-full lg:w-auto !bg-green !text-dark hover:!bg-dark hover:!text-green">
-              Subscribe to news
-            </Button>
-          </form>
+        {/* BOTTOM */}
+        <div className="py-[50px] border-t border-white flex flex-col lg:flex-row items-center gap-3.5 lg:gap-10">
+          <p>© 2023 Positivus. All Rights Reserved.</p>
+          <a className="underline">Privacy Policy</a>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 bg-green text-dark text-xs xs:text-sm flex justify-around items-center py-1">
+          <p>
+            Design by
+            <Link
+              target="_blank"
+              href="https://olgaaverchenko.gumroad.com/"
+              className="pl-1 hover:underline"
+            >
+              Olga Averchenko
+            </Link>
+          </p>
+          <p>
+            Developed by
+            <Link
+              target="_blank"
+              href="https://www.brandon-mitchell.dev/?ref=positivus"
+              className="pl-1 hover:underline"
+            >
+              Brandon
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
