@@ -5,6 +5,9 @@ import type { AppProps } from 'next/app'
 import { IBM_Plex_Mono, Inter, PT_Serif, Space_Grotesk } from 'next/font/google'
 import { lazy } from 'react'
 
+import Footer from '~/components/ui/Footer'
+import Nav from '~/components/ui/Nav'
+
 export interface SharedPageProps {
   draftMode: boolean
   token: string
@@ -54,6 +57,7 @@ export default function App({
           }
         `}
       </style>
+      <Nav />
       {draftMode ? (
         <PreviewProvider token={token}>
           <Component {...pageProps} />
@@ -61,6 +65,7 @@ export default function App({
       ) : (
         <Component {...pageProps} />
       )}
+      <Footer />
     </>
   )
 }

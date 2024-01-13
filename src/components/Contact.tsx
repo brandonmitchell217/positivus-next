@@ -16,7 +16,7 @@ export default function Contact() {
                 type="radio"
                 id="messageCheck"
                 name="messageCheck"
-                checked
+                defaultChecked
                 className="h-6 w-6"
               />
             </div>

@@ -15,8 +15,13 @@
     @apply font-medium;
   }
 
-  a {
+  a,
+  button {
     @apply cursor-pointer;
+  }
+
+  button {
+    @apply focus:outline-none;
   }
 }
 
