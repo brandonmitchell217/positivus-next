@@ -136,7 +136,7 @@ export default function IndexPage(
 
   return (
     <main>
-      <section className="pt-40">
+      <section className="pt-[70px]">
         <FlexLanding landing={landing} />
         <Container className="py-16">
           <PartnerImages partners={partners} />
