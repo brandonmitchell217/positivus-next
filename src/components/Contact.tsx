@@ -85,7 +85,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <Button className="bg-dark text-white w-full hidden md:inline-block hover:bg-transparent hover:text-dark">
+            <Button className="bg-dark text-white w-full inline-block lg:block hover:bg-transparent hover:text-dark">
               Send Message
             </Button>
           </div>
@@ -157,9 +157,9 @@ export default function Contact() {
         </div>
       </div>
 
-      <Button className="bg-dark text-white w-full md:hidden mt-[30px] hover:bg-transparent hover:text-dark">
+      {/* <Button className="bg-dark text-white w-full md:hidden mt-[30px] hover:bg-transparent hover:text-dark">
         Send Message
-      </Button>
+      </Button> */}
     </div>
   )
 }

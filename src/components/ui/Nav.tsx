@@ -36,7 +36,7 @@ export default function Nav() {
     }
   }, [isOpen, matches])
   return (
-    <nav className="fixed z-40 top-0 left-0 right-0 pt-[30px] lg:pt-[60px] text-dark">
+    <nav className="relative z-40 top-0 left-0 right-0 pt-[30px] lg:pt-[60px] text-dark">
       <div className="container flex justify-between items-center">
         <Link href="/">
           <Image
