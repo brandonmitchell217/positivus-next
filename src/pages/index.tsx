@@ -3,7 +3,6 @@ import { useLiveQuery } from 'next-sanity/preview'
 
 import Accordion from '~/components/Accordion'
 import ServiceCard from '~/components/Card/ServiceCard'
-import TeamBio from '~/components/Card/TeamBio'
 import CaseStudies from '~/components/CaseStudies'
 import Contact from '~/components/Contact'
 import FlexLanding from '~/components/FlexLanding'
@@ -138,9 +137,7 @@ export default function IndexPage(
     <main>
       <section className="pt-[70px]">
         <FlexLanding landing={landing} />
-        <Container className="py-16">
-          <PartnerImages partners={partners} />
-        </Container>
+        <PartnerImages partners={partners} />
       </section>
       <section>
         <SectionHeader header={serviceHeader} />

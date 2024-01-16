@@ -9,7 +9,7 @@ import Button from './ui/Button'
 export default function FlexLanding({ landing }: { landing: Cta }) {
   return (
     <div className="container">
-      <div className="flex flex-col gap-12 lg:gap-0 lg:flex-row items-center justify-center lg:items-stretch lg:justify-between text-left">
+      <div className="flex flex-col lg:flex-row items-center justify-center lg:items-stretch lg:justify-between text-left">
         <div className="lg:flex-[0.8] space-y-8">
           <h1 className="text-5xl lg:text-6xl leading-tight m-auto lg:m-0">
             {landing?.title}

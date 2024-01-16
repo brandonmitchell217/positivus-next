@@ -35,7 +35,12 @@ export default function CaseStudies({
         ))}
       </div>
       <div className="md:hidden pt-16">
-        <Swiper spaceBetween={50} slidesPerView={1.2} loop={true}>
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1.2}
+          loop={true}
+          style={{ overflow: 'visible' }}
+        >
           {caseStudies.map((caseStudy) => (
             <SwiperSlide
               key={caseStudy.orderNumber}
