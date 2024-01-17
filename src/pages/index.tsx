@@ -131,11 +131,9 @@ export default function IndexPage(
     (header) => header.title.toLowerCase() === 'contact us',
   )
 
-  // TODO: Section padding
-
   return (
     <main>
-      <section className="pt-[70px]">
+      <section className="pt-10 lg:pt-[70px]">
         <FlexLanding landing={landing} />
         <PartnerImages partners={partners} />
       </section>
@@ -152,7 +150,7 @@ export default function IndexPage(
           <HomeCta cta={homeCta} />
         </Container>
       </section>
-      <section>
+      <section className="overflow-x-hidden">
         <SectionHeader header={caseStudyHeader} />
         <Container className="pb-20">
           <CaseStudies caseStudies={caseStudies} />

@@ -9,7 +9,7 @@ export default function PartnerImages({ partners }: { partners: Partner[] }) {
   const lastThree = partners?.slice(3, 6)
 
   return (
-    <div className="lg:container py-16 overflow-x-hidden">
+    <div className="lg:container pt-10 pb-[60px] lg:pb-[140px] overflow-x-hidden">
       <div className="hidden lg:flex items-center justify-between">
         {partners?.map((partner) => (
           <div key={partner._id}>
@@ -23,7 +23,7 @@ export default function PartnerImages({ partners }: { partners: Partner[] }) {
         ))}
       </div>
       <div className="block lg:hidden space-y-6">
-        <div className="w-[108vw] flex justify-between items-center">
+        <div className="w-[110vw] flex justify-evenly items-center">
           {firstThree.map((partner) => (
             <div key={partner._id}>
               <Image
@@ -31,11 +31,12 @@ export default function PartnerImages({ partners }: { partners: Partner[] }) {
                 width={130}
                 height={56}
                 alt={`${partner.title} logo`}
+                className="w-24 h-auto"
               />
             </div>
           ))}
         </div>
-        <div className="w-[108vw] -ml-16 flex justify-between items-center">
+        <div className="w-[110vw] -ml-16 flex justify-evenly items-center">
           {lastThree.map((partner) => (
             <div key={partner._id}>
               <Image
@@ -43,6 +44,7 @@ export default function PartnerImages({ partners }: { partners: Partner[] }) {
                 width={130}
                 height={56}
                 alt={`${partner.title} logo`}
+                className="w-24 h-auto"
               />
             </div>
           ))}
