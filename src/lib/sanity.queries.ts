@@ -52,6 +52,7 @@ export async function getTestimonials(
 }
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
+export const ctaByOrderNumberQuery = groq`*[_type == "cta" && slug.current == $slug][0]`
 
 export async function getPost(
   client: SanityClient,
@@ -61,10 +62,17 @@ export async function getPost(
     slug,
   })
 }
+export async function getCta(client: SanityClient, slug: string): Promise<Cta> {
+  return await client.fetch(ctaByOrderNumberQuery, {
+    slug,
+  })
+}
 
 export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
-`
+*[_type == "post" && defined(slug.current)][].slug.current`
+
+export const ctaOrderNumbersQuery = groq`
+*[_type == "cta" && defined(slug.current)][].slug.current`
 
 export interface Post {
   _type: 'post'

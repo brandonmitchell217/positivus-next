@@ -58,7 +58,7 @@ export default defineConfig({
     // Add the "Open preview" action
     previewUrl({
       base: '/api/draft',
-      requiresSlug: ['post'],
+      requiresSlug: ['cta'],
       urlSecretId: previewSecretId,
     }),
     // Vision lets you query your content with GROQ in the studio
