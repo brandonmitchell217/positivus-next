@@ -71,7 +71,7 @@ export default function ServiceCard({ card }: { card: ServiceCardProps }) {
       <Image
         src={urlForImage(card.image).url()}
         alt="Illustration for services"
-        className="absolute w-[180px] h-auto md:w-[120px] md:h-auto lg:w-[210px] bottom-[50px] right-[50px]"
+        className="absolute w-[180px] h-auto md:w-[120px] md:h-auto lg:w-[210px] bottom-[50px] md:bottom-[75px] lg:bottom-[50px] right-[50px]"
         width={210}
         height={210}
       />

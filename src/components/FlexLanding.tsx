@@ -10,7 +10,7 @@ export default function FlexLanding({ landing }: { landing: Cta }) {
   return (
     <div className="container">
       <div className="flex flex-col lg:flex-row items-center justify-center lg:items-stretch lg:justify-between text-left">
-        <div className="lg:flex-[0.8] space-y-8">
+        <div className="lg:flex-1 xl:flex-[0.8] space-y-8">
           <h1 className="text-5xl lg:text-6xl leading-tight md:text-center lg:text-left m-auto lg:m-0">
             {landing?.title}
           </h1>
@@ -21,7 +21,7 @@ export default function FlexLanding({ landing }: { landing: Cta }) {
             <Button href={landing?.buttonUrl}>{landing?.buttonText}</Button>
           </div>
         </div>
-        <div className="">
+        <div className="lg:flex-[0.8] xl:flex-1">
           <Image
             src={urlForImage(landing?.mainImage)
               .width(594)

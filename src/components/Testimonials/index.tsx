@@ -33,7 +33,7 @@ export default function TestimoialCarousel({
     return (
       <div className="flex justify-center items-center">
         <div>
-          <div className="testimonial rounded-45xl p-8 w-[330px] h-[336px] md:w-[606px] md:h-[266px]">
+          <div className="testimonial rounded-45xl py-8 px-4 xs:p-8 max-w-[330px] xs:max-w-max h-auto xs:h-[336px] md:w-[606px] md:h-[266px]">
             <p className="text-sm md:text-base relative leading-normal">
               &ldquo;{testimonial.excerpt}&rdquo;
             </p>
@@ -50,7 +50,7 @@ export default function TestimoialCarousel({
   }
 
   return (
-    <div className="relative h-[568px] lg:h-[625px] bg-dark text-white rounded-45xl p-[30px] pb-0 md:p-0 md:pt-[84px]">
+    <div className="relative h-[568px] lg:h-[625px] bg-dark text-white rounded-45xl py-[30px] px-4 xs:p-[30px] pb-0 md:p-0 md:pt-[84px]">
       <Swiper
         modules={[Navigation, Pagination]}
         onSwiper={(swiper) => {
@@ -71,6 +71,7 @@ export default function TestimoialCarousel({
         breakpoints={{
           768: {
             spaceBetween: 100,
+            slidesPerView: 1,
           },
           1280: {
             slidesPerView: 2,
@@ -83,7 +84,7 @@ export default function TestimoialCarousel({
             <TestimonialSlide testimonial={testimonial} />
           </SwiperSlide>
         ))}
-        <div className="absolute z-50 bottom-[2.5rem] w-full flex justify-evenly items-center pointer-events-none">
+        <div className="absolute z-50 bottom-[2.5rem] w-full flex justify-between xs:justify-evenly items-center pointer-events-none">
           <button
             className="pointer-events-auto"
             onClick={() => swiperRef.current.slidePrev()}

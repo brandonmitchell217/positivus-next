@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <div className="container">
       <div className="relative bg-grey rounded-45xl py-[62.5px] px-6 sm:px-[50px] md:px-[100px] flex overflow-hidden">
-        <form className="w-full md:w-1/2 max-w-[559px] space-y-10">
+        <form className="w-full lg:w-[60%] xl:w-1/2 max-w-[559px] space-y-10">
           <div className="flex justify-evenly md:justify-stretch items-center gap-8">
             <div className="flex flex-row-reverse gap-3.5 items-center">
               <label htmlFor="messageCheck" className="text-lg">
@@ -91,7 +91,7 @@ export default function Contact() {
           </div>
         </form>
 
-        <div className="absolute -right-[16.5%] top-0 translate-x-[16.5%] hidden md:block">
+        <div className="absolute right-0 top-0 translate-x-[50%] hidden lg:block">
           <svg
             width="692"
             height="649"
