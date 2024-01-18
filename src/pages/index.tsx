@@ -12,6 +12,8 @@ import SectionHeader from '~/components/SectionHeader'
 import TeamContainer from '~/components/Team'
 import TestimoialCarousel from '~/components/Testimonials'
 import Container from '~/components/ui/Container'
+import Footer from '~/components/ui/Footer'
+import Nav from '~/components/ui/Nav'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
@@ -131,57 +133,59 @@ export default function IndexPage(
     (header) => header.title.toLowerCase() === 'contact us',
   )
 
-  // TODO: Section padding
-
   return (
-    <main>
-      <section className="pt-[70px]">
-        <FlexLanding landing={landing} />
-        <PartnerImages partners={partners} />
-      </section>
-      <section>
-        <SectionHeader header={serviceHeader} />
-        <Container className="py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
-          {serviceCards?.map((card) => (
-            <ServiceCard key={card.orderNumber} card={card} />
-          ))}
-        </Container>
-      </section>
-      <section>
-        <Container className="pb-20">
-          <HomeCta cta={homeCta} />
-        </Container>
-      </section>
-      <section>
-        <SectionHeader header={caseStudyHeader} />
-        <Container className="pb-20">
-          <CaseStudies caseStudies={caseStudies} />
-        </Container>
-      </section>
-      <section>
-        <SectionHeader header={workingProcessHeader} />
-        <Container className="py-20">
-          <Accordion accordions={accordions} />
-        </Container>
-      </section>
-      <section>
-        <SectionHeader header={teamHeader} />
-        <Container className="py-20">
-          <TeamContainer team={bios} />
-        </Container>
-      </section>
-      <section>
-        <SectionHeader header={testimonialHeader} />
-        <Container className="py-20">
-          <TestimoialCarousel testimonials={testimonials} />
-        </Container>
-      </section>
-      <section>
-        <SectionHeader header={contactHeader} />
-        <Container className="py-20">
-          <Contact />
-        </Container>
-      </section>
-    </main>
+    <>
+      <Nav />
+      <main>
+        <section className="pt-10 lg:pt-[70px]">
+          <FlexLanding landing={landing} />
+          <PartnerImages partners={partners} />
+        </section>
+        <section>
+          <SectionHeader header={serviceHeader} />
+          <Container className="pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-12">
+            {serviceCards?.map((card) => (
+              <ServiceCard key={card.orderNumber} card={card} />
+            ))}
+          </Container>
+        </section>
+        <section>
+          <Container className="py-[60px] lg:py-[100px]">
+            <HomeCta cta={homeCta} />
+          </Container>
+        </section>
+        <section className="overflow-x-hidden">
+          <SectionHeader header={caseStudyHeader} />
+          <Container className="pb-[60px] lg:pb-[100px]">
+            <CaseStudies caseStudies={caseStudies} />
+          </Container>
+        </section>
+        <section>
+          <SectionHeader header={workingProcessHeader} />
+          <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
+            <Accordion accordions={accordions} />
+          </Container>
+        </section>
+        <section>
+          <SectionHeader header={teamHeader} />
+          <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
+            <TeamContainer team={bios} />
+          </Container>
+        </section>
+        <section>
+          <SectionHeader header={testimonialHeader} />
+          <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
+            <TestimoialCarousel testimonials={testimonials} />
+          </Container>
+        </section>
+        <section>
+          <SectionHeader header={contactHeader} />
+          <Container className="pt-10 md:pt-20">
+            <Contact />
+          </Container>
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 }
