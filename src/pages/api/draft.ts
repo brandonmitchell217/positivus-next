@@ -16,7 +16,8 @@ export default async function preview(
   const { query } = req
 
   const secret = typeof query.secret === 'string' ? query.secret : undefined
-  const slug = typeof query.slug === 'string' ? query.slug : undefined
+  const slug = typeof query.slug === 'string' ? query.slug : query.title
+  const title = typeof query.title === 'string' ? query.title : undefined
 
   if (!secret) {
     res.status(401)
@@ -36,9 +37,9 @@ export default async function preview(
     return res.status(401).send('Invalid secret')
   }
 
-  if (slug) {
+  if (slug || title) {
     res.setDraftMode({ enable: true })
-    res.writeHead(307, { Location: `/#${slug}` })
+    res.writeHead(307, { Location: `/#${slug || title}` })
     res.end()
     return
   }
