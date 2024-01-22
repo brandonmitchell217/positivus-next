@@ -15,7 +15,7 @@ export default function HomeCta({ cta }: { cta: Cta }) {
       <div className="max-w-[500px] md:mx-auto md:text-center lg:mx-0 lg:text-left space-y-6">
         <h4 className="text-3xl">{cta.title}</h4>
         <p>{cta.excerpt}</p>
-        <div className="pt-8">
+        <div className="pt-8 flex justify-center md:block">
           <Button href={'/'}>Get your free proposal</Button>
         </div>
       </div>
