@@ -80,7 +80,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="bg-darkAlt flex-1 rounded-xl.5 py-[58px] px-5 lg:px-10 w-full lg:w-auto">
+          <div className="bg-darkAlt flex-1 rounded-xl.5 py-[58px] px-5 xl:px-10 w-full lg:w-auto">
             <form className="flex flex-col lg:flex-row items-center gap-5">
               <input
                 type="email"
@@ -89,7 +89,7 @@ export default function Footer() {
                 placeholder="Email"
                 className="w-full lg:w-auto flex-1 rounded-xl.5 border py-4 px-3 text-base bg-transparent leading-8 transition-colors duration-200 ease-in-out placeholder:text-gray-500 focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-transparent"
               />
-              <Button className="w-full lg:w-auto !bg-green !text-dark hover:!bg-dark hover:!text-green">
+              <Button className="w-full lg:w-auto lg:px-2 xl:px-8 !bg-green !text-dark hover:!bg-dark hover:!text-green">
                 Subscribe to news
               </Button>
             </form>
