@@ -7,12 +7,10 @@ import caseStudy from './caseStudy'
 import cta from './cta'
 import header from './header'
 import partner from './partner'
-import post from './post'
 import teamBio from './teamBio'
 import testimonial from './testimonial'
 
 export const schemaTypes = [
-  post,
   cta,
   header,
   partner,
@@ -25,7 +23,6 @@ export const schemaTypes = [
 ]
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    post,
     cta,
     header,
     partner,

@@ -1,5 +1,6 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import { useLiveQuery } from 'next-sanity/preview'
+import { Suspense } from 'react'
 
 import Accordion from '~/components/Accordion'
 import ServiceCard from '~/components/Card/ServiceCard'
@@ -36,8 +37,6 @@ import {
   headersQuery,
   Partner,
   partnersQuery,
-  type Post,
-  postsQuery,
   ServiceCardProps,
   serviceCardsQuery,
   TeamMemberProps,
@@ -45,7 +44,6 @@ import {
   TestimonialProps,
   testimonialsQuery,
 } from '~/lib/sanity.queries'
-import type { SharedPageProps } from '~/pages/_app'
 
 export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
@@ -81,7 +79,6 @@ export const getStaticProps = async ({ draftMode = false }) => {
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
   const [ctas] = useLiveQuery<Cta[]>(props.ctas, ctasQuery)
   const [partners] = useLiveQuery<Partner[]>(props.partners, partnersQuery)
   const [headers] = useLiveQuery<Header[]>(props.headers, headersQuery)
@@ -136,55 +133,57 @@ export default function IndexPage(
   return (
     <>
       <Nav />
-      <main>
-        <section className="pt-10 lg:pt-[70px]">
-          <FlexLanding landing={landing} />
-          <PartnerImages partners={partners} />
-        </section>
-        <section>
-          <SectionHeader header={serviceHeader} />
-          <Container className="pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-12">
-            {serviceCards?.map((card) => (
-              <ServiceCard key={card.orderNumber} card={card} />
-            ))}
-          </Container>
-        </section>
-        <section>
-          <Container className="py-[60px] lg:py-[100px]">
-            <HomeCta cta={homeCta} />
-          </Container>
-        </section>
-        <section className="overflow-x-hidden">
-          <SectionHeader header={caseStudyHeader} />
-          <Container className="pb-[60px] lg:pb-[100px]">
-            <CaseStudies caseStudies={caseStudies} />
-          </Container>
-        </section>
-        <section>
-          <SectionHeader header={workingProcessHeader} />
-          <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
-            <Accordion accordions={accordions} />
-          </Container>
-        </section>
-        <section>
-          <SectionHeader header={teamHeader} />
-          <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
-            <TeamContainer team={bios} />
-          </Container>
-        </section>
-        <section>
-          <SectionHeader header={testimonialHeader} />
-          <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
-            <TestimoialCarousel testimonials={testimonials} />
-          </Container>
-        </section>
-        <section>
-          <SectionHeader header={contactHeader} />
-          <Container className="pt-10 md:pt-20">
-            <Contact />
-          </Container>
-        </section>
-      </main>
+      <Suspense fallback={<div>Loading...</div>}>
+        <main>
+          <section className="pt-10 lg:pt-[70px]">
+            <FlexLanding landing={landing} />
+            <PartnerImages partners={partners} />
+          </section>
+          <section>
+            <SectionHeader header={serviceHeader} />
+            <Container className="pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {serviceCards?.map((card) => (
+                <ServiceCard key={card.orderNumber} card={card} />
+              ))}
+            </Container>
+          </section>
+          <section>
+            <Container className="py-[60px] lg:py-[100px]">
+              <HomeCta cta={homeCta} />
+            </Container>
+          </section>
+          <section className="overflow-x-hidden">
+            <SectionHeader header={caseStudyHeader} />
+            <Container className="pb-[60px] lg:pb-[100px]">
+              <CaseStudies caseStudies={caseStudies} />
+            </Container>
+          </section>
+          <section>
+            <SectionHeader header={workingProcessHeader} />
+            <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
+              <Accordion accordions={accordions} />
+            </Container>
+          </section>
+          <section>
+            <SectionHeader header={teamHeader} />
+            <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
+              <TeamContainer team={bios} />
+            </Container>
+          </section>
+          <section>
+            <SectionHeader header={testimonialHeader} />
+            <Container className="pt-10 md:pt-20 pb-[60px] lg:pb-[100px]">
+              <TestimoialCarousel testimonials={testimonials} />
+            </Container>
+          </section>
+          <section>
+            <SectionHeader header={contactHeader} />
+            <Container className="pt-10 md:pt-20">
+              <Contact />
+            </Container>
+          </section>
+        </main>
+      </Suspense>
       <Footer />
     </>
   )

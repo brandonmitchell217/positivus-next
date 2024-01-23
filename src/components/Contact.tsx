@@ -1,8 +1,13 @@
+'use client'
 import React from 'react'
 
 import Button from './ui/Button'
 
 export default function Contact() {
+  function sendForm(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    alert('Form would typically submit! 🎉')
+  }
   return (
     <div className="container">
       <div className="relative bg-grey rounded-45xl py-[62.5px] px-6 sm:px-[50px] md:px-[100px] flex overflow-hidden">
@@ -85,7 +90,10 @@ export default function Contact() {
               </div>
             </div>
 
-            <Button className="bg-dark text-white w-full inline-block lg:block hover:bg-transparent hover:text-dark">
+            <Button
+              className="bg-dark text-white w-full inline-block lg:block hover:bg-transparent hover:text-dark"
+              onClick={(e) => sendForm(e)}
+            >
               Send Message
             </Button>
           </div>
@@ -156,10 +164,6 @@ export default function Contact() {
           </svg>
         </div>
       </div>
-
-      {/* <Button className="bg-dark text-white w-full md:hidden mt-[30px] hover:bg-transparent hover:text-dark">
-        Send Message
-      </Button> */}
     </div>
   )
 }

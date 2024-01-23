@@ -2,6 +2,7 @@
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import router, { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 
@@ -53,7 +54,7 @@ export default function Nav() {
             <li key={link.name}>
               {index === navLinks.length - 1 ? (
                 <Button
-                  href={link.path}
+                  onClick={() => router.push(link.path)}
                   className="bg-white !text-dark hover:!bg-dark hover:!text-white"
                 >
                   {link.name}
@@ -101,7 +102,7 @@ export default function Nav() {
                 <li key={link.name}>
                   {index === navLinks.length - 1 ? (
                     <Button
-                      href={link.path}
+                      onClick={() => router.push(link.path)}
                       className="bg-white !text-dark hover:!bg-dark hover:!text-white block"
                     >
                       {link.name}
