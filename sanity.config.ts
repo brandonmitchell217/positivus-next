@@ -12,7 +12,6 @@ import {
 } from 'sanity-plugin-iframe-pane'
 import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url'
 
-import Button from '~/components/studio/Button'
 // see https://www.sanity.io/docs/api-versioning for how versioning works
 import {
   apiVersion,
