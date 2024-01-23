@@ -5,8 +5,6 @@ import { AccordionProps } from '~/lib/sanity.queries'
 
 import AccordionItem from './AccordionItem'
 
-// { title, children }
-
 export default function Accordion({
   accordions,
 }: {

@@ -3,21 +3,17 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperRef, SwiperSlide, useSwiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { TestimonialProps } from '~/lib/sanity.queries'
-
-import CarouselStar from '../../assets/carousel_star.svg'
-import CarouselStarActive from '../../assets/carousel_star-active.svg'
 
 export default function TestimoialCarousel({
   testimonials,
 }: {
   testimonials: TestimonialProps[]
 }) {
-  // swiper-pagination-bullet-active
   const pagination = {
     clickable: true,
     bulletClass: 'pagination-bullet',
