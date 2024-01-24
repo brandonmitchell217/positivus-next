@@ -14,13 +14,17 @@
     "singleQuote": true
   },
   "dependencies": {
+    "@next/env": "^14.1.0",
     "@portabletext/react": "3.0.11",
+    "@portabletext/types": "^2.0.8",
     "@sanity/client": "6.8.6",
     "@sanity/demo": "1.0.2",
     "@sanity/image-url": "^1.0.2",
+    "@sanity/types": "^3.26.0",
     "@sanity/ui": "^1.9.3",
     "@sanity/vision": "^3.23.4",
     "@tailwindcss/typography": "0.5.10",
+    "groq": "^3.26.0",
     "lucide-react": "^0.304.0",
     "next": "14.0.3",
     "next-sanity": "^7.0.6",
