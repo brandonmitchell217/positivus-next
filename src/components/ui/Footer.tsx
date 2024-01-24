@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import { ContactInfoProps } from '~/lib/types'
-import { navLinks, socialLinks } from '~/lib/util'
+import { navLinks, sendForm, socialLinks } from '~/lib/util'
 
 import Logo from '../../assets/logo_footer.svg'
 import Button from './Button'
@@ -89,7 +89,10 @@ export default function Footer() {
                 placeholder="Email"
                 className="w-full lg:w-auto flex-1 rounded-xl.5 border py-4 px-3 text-base bg-transparent leading-8 transition-colors duration-200 ease-in-out placeholder:text-gray-500 focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-transparent"
               />
-              <Button className="w-full lg:w-auto lg:px-2 xl:px-8 !bg-green !text-dark hover:!bg-dark hover:!text-green">
+              <Button
+                onClick={(e) => sendForm(e)}
+                className="w-full lg:w-auto lg:px-2 xl:px-8 !bg-green !text-dark hover:!bg-dark hover:!text-green"
+              >
                 Subscribe to news
               </Button>
             </form>
@@ -104,23 +107,23 @@ export default function Footer() {
         <div className="absolute bottom-0 left-0 right-0 bg-green text-dark text-xs xs:text-sm flex justify-around items-center py-1">
           <p>
             Design by
-            <Link
+            <a
               target="_blank"
               href="https://olgaaverchenko.gumroad.com/"
               className="pl-1 hover:underline"
             >
               Olga Averchenko
-            </Link>
+            </a>
           </p>
           <p>
             Developed by
-            <Link
+            <a
               target="_blank"
               href="https://www.brandon-mitchell.dev/?ref=positivus"
               className="pl-1 hover:underline"
             >
               Brandon
-            </Link>
+            </a>
           </p>
         </div>
       </div>

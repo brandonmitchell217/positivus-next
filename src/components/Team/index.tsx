@@ -28,7 +28,7 @@ export default function TeamContainer({ team }: { team: TeamMemberProps[] }) {
       </div>
 
       <Button
-        href="/"
+        href="/team"
         className="w-full md:w-fit self-end block mt-8 bg-dark text-white hover:bg-white hover:text-dark"
       >
         See more of the team
