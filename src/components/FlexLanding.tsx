@@ -18,7 +18,7 @@ export default function FlexLanding({ landing }: { landing: Cta }) {
             {landing?.excerpt}
           </p>
           <div className="hidden lg:block pt-6">
-            <Button href={landing?.buttonUrl}>{landing?.buttonText}</Button>
+            <Button href={'/consultation'}>{landing?.buttonText}</Button>
           </div>
         </div>
         <div className="lg:flex-[0.8] xl:flex-1">

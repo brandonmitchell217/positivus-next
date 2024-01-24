@@ -45,3 +45,8 @@ export const socialLinks: { icon: ReactNode; label: string; url: string }[] = [
     url: 'https://www.twitter.com',
   },
 ]
+
+export function sendForm(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault()
+  alert('Form would typically submit! 🎉')
+}

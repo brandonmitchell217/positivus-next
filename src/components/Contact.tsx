@@ -1,13 +1,11 @@
 'use client'
 import React from 'react'
 
+import { sendForm } from '~/lib/util'
+
 import Button from './ui/Button'
 
 export default function Contact() {
-  function sendForm(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    alert('Form would typically submit! 🎉')
-  }
   return (
     <div className="container">
       <div className="relative bg-grey rounded-45xl py-[62.5px] px-6 sm:px-[50px] md:px-[100px] flex overflow-hidden">

@@ -54,7 +54,7 @@ export default function Nav() {
             <li key={link.name}>
               {index === navLinks.length - 1 ? (
                 <Button
-                  onClick={() => router.push(link.path)}
+                  href={link.path}
                   className="bg-white !text-dark hover:!bg-dark hover:!text-white"
                 >
                   {link.name}
@@ -102,7 +102,7 @@ export default function Nav() {
                 <li key={link.name}>
                   {index === navLinks.length - 1 ? (
                     <Button
-                      onClick={() => router.push(link.path)}
+                      href={link.path}
                       className="bg-white !text-dark hover:!bg-dark hover:!text-white block"
                     >
                       {link.name}
