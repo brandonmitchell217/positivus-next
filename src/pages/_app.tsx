@@ -3,6 +3,7 @@ import 'swiper/css'
 
 import type { AppProps } from 'next/app'
 import { Space_Grotesk } from 'next/font/google'
+import Head from 'next/head'
 import { lazy } from 'react'
 
 export interface SharedPageProps {
@@ -32,6 +33,10 @@ export default function App({
           }
         `}
       </style>
+      <Head>
+        <title>Positivus</title>
+        <link rel="shortcut icon" href="/favicon.png" />
+      </Head>
 
       {draftMode ? (
         <PreviewProvider token={token}>
