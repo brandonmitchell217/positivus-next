@@ -6,7 +6,7 @@
 
 ### 🛠️ Built Using
 
-[![Next.js][Next.js]][Next-url] [![Sanity][Sanity]][Sanity-url] [![Tailwind][Tailwindcss]][Tailwindcss-url] [![Swiper][Swiper.js]][Swiper-url] [![TypeScript][TypeScript]][TypeScript-url] 
+[![Next.js][Next.js]][Next-url] [![TypeScript][TypeScript]][TypeScript-url] [![Sanity][Sanity]][Sanity-url] [![Tailwind][Tailwindcss]][Tailwindcss-url] [![Swiper][Swiper.js]][Swiper-url] 
 
 
 ## Attribution
