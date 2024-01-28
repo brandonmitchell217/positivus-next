@@ -1,3 +1,41 @@
+# Positivus
+
+> A landing page for a digital marketing agency.
+
+<img src="./src/assets/Cover.png" alt="Screenshot of the Positivus design" />
+
+### 🛠️ Built Using
+
+[![Next.js][Next.js]][Next-url] [![Sanity][Sanity]][Sanity-url] [![Tailwind][Tailwindcss]][Tailwindcss-url] [![Swiper][Swiper.js]][Swiper-url] [![TypeScript][TypeScript]][TypeScript-url] 
+
+
+## Attribution
+
+Design by [Olga Averchenko](https://olgaaverchenko.gumroad.com/)
+
+
+
+[Sanity]: https://img.shields.io/badge/Sanity-000000?logo=sanity&logoColor=fff&style=for-the-badge
+[Sanity-url]: https://www.sanity.io/
+[Next.js]: https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge
+[Next-url]: https://nextjs.org/
+[Nuxt.js]: https://img.shields.io/badge/nuxt.js-00DC82?style=for-the-badge&logo=nuxtdotjs&logoColor=00DC82&color=black
+[Nuxt-url]: https://nuxt.com/
+[Vue.js]: https://img.shields.io/badge/Vue.js-000000?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Tailwindcss]: https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4&color=black
+[Tailwindcss-url]: https://tailwindcss.com/
+[Sass]: https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=CC6699&color=black
+[Sass-url]: https://sass-lang.com/
+[Swiper.js]: https://img.shields.io/badge/swiper-6332F6?style=for-the-badge&logo=swiper&logoColor=6332F6&color=black
+[Swiper-url]: https://swiperjs.com/
+[GSAP]: https://img.shields.io/badge/gsap-88CE02?style=for-the-badge&logo=greensock&logoColor=88CE02&color=black
+[GSAP-url]: https://gsap.com/
+[Storyblok]: https://img.shields.io/badge/storyblok-09B3AF?style=for-the-badge&logo=storyblok&logoColor=09B3AF&color=black
+[Storyblok-url]: https://www.storyblok.com/
+[TypeScript]: https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=3178C6&color=black
+[TypeScript-url]: https://typescriptlang.org
+
 # A minimal Next.js site with Sanity Studio
 
 This starter is a statically generated site that uses [Next.js][nextjs] for the frontend and [Sanity][sanity-homepage] to handle its content.
