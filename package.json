@@ -1,5 +1,6 @@
 {
-  "private": true,
+  "title": "Positivus",
+  "private": false,
   "scripts": {
     "build": "next build",
     "dev": "next",
