@@ -22,8 +22,8 @@ export default function CaseStudies({
   }
 
   return (
-    <>
-      <div className="hidden md:flex lg:px-[60px] md:py-16 mt-20 rounded-45xl bg-dark text-white justify-center gap-4 md:gap-0 md:justify-between items-center">
+    <div id="CaseStudies">
+      <div className="hidden md:flex md:py-16 lg:px-[60px] mt-20 rounded-45xl bg-dark text-white justify-center gap-4 md:gap-0 md:justify-between items-center">
         {caseStudies.map((caseStudy) => (
           <div
             key={caseStudy._id}
@@ -44,7 +44,7 @@ export default function CaseStudies({
           {caseStudies.map((caseStudy) => (
             <SwiperSlide
               key={caseStudy.orderNumber}
-              className="py-[42px] px-[50px] space-y-5 rounded-45xl bg-dark text-white justify-center gap-4 md:gap-0 md:justify-between items-center"
+              className="py-[42px] px-[50px] h-[295px] space-y-5 rounded-45xl bg-dark text-white justify-center gap-4 md:gap-0 md:justify-between items-center"
             >
               <p>{caseStudy.excerpt}</p>
               <StudyLink />
@@ -52,6 +52,6 @@ export default function CaseStudies({
           ))}
         </Swiper>
       </div>
-    </>
+    </div>
   )
 }
