@@ -58,6 +58,16 @@
     display: block;
   }
 }
+
+#CaseStudies .swiper-slide {
+  height: 400px !important;
+}
+@media screen and (min-width: 375px) {
+  #CaseStudies .swiper-slide {
+    height: inherit !important;
+  }
+}
+
 .testimonial {
   background-image: url('../assets/bubble_mobile.png');
   background-size: contain;

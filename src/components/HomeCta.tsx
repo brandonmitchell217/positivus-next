@@ -9,7 +9,7 @@ import Button from './ui/Button'
 export default function HomeCta({ cta }: { cta: Cta }) {
   return (
     <div
-      className="min-h-[347px] p-[60px] relative bg-grey rounded-45xl"
+      className="min-h-[347px] p-6 py-[60px] md:p-[60px] relative bg-grey rounded-45xl"
       id="home-cta"
     >
       <div className="max-w-[500px] md:mx-auto md:text-center lg:mx-0 lg:text-left space-y-6">

@@ -34,7 +34,7 @@ export default function FlexLanding({ landing }: { landing: Cta }) {
           />
           <p className="block lg:hidden text-lg">{landing?.excerpt}</p>
           <div className="flex justify-center lg:hidden pt-6">
-            <Button href={landing?.buttonUrl} className="w-full">
+            <Button href={'/consultation'} className="w-full">
               {landing?.buttonText}
             </Button>
           </div>
