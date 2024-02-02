@@ -92,12 +92,12 @@
   display: block;
   height: 14px;
   width: 14px;
-  background-image: url('../assets/carousel_star.svg');
+  background-image: url('/carousel_star.svg');
   background-size: cover;
   cursor: pointer;
 }
 .pagination-bullet-active {
-  background-image: url('../assets/carousel_star-active.svg');
+  background-image: url('/carousel_star-active.svg');
 }
 
 .arrow {
