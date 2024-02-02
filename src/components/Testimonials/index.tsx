@@ -29,8 +29,13 @@ export default function TestimoialCarousel({
     return (
       <div className="flex justify-center items-center">
         <div>
-          <div className="testimonial rounded-45xl py-8 px-4 xs:p-8 max-w-[330px] xs:max-w-max h-auto xs:h-[336px] md:w-[606px] md:h-[266px]">
+          {/* <div className="testimonial rounded-45xl py-8 px-4 xs:p-8 max-w-[330px] xs:max-w-max h-auto xs:h-[336px] md:w-[606px] md:h-[266px]">
             <p className="text-sm md:text-base relative leading-normal">
+              &ldquo;{testimonial.excerpt}&rdquo;
+            </p>
+          </div> */}
+          <div className="testimonial rounded-45xl py-8 px-4 xs:p-8 min-h-[326px] max-w-[606px] md:min-h-[266px]">
+            <p className="text-xs md:text-base relative leading-normal">
               &ldquo;{testimonial.excerpt}&rdquo;
             </p>
           </div>
@@ -68,6 +73,10 @@ export default function TestimoialCarousel({
           768: {
             spaceBetween: 100,
             slidesPerView: 1,
+          },
+          1024: {
+            spaceBetween: 10,
+            slidesPerView: 1.75,
           },
           1280: {
             slidesPerView: 2,

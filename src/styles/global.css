@@ -64,20 +64,21 @@
 }
 @media screen and (min-width: 375px) {
   #CaseStudies .swiper-slide {
-    height: inherit !important;
+    height: 295px !important;
   }
 }
 
 .testimonial {
   background-image: url('../assets/bubble_mobile.png');
   background-size: contain;
+  /* background-size: contain; */
   background-repeat: no-repeat;
   background-position: center;
 }
 @media screen and (min-width: 768px) {
   .testimonial {
     background-image: url('../assets/bubble.png');
-    background-size: cover;
+    background-size: contain;
   }
 }
 .swiper-pagination {
