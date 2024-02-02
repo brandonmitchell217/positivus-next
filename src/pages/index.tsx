@@ -100,6 +100,17 @@ export default function IndexPage(
     testimonialsQuery,
   )
 
+  // const {
+  //   ctas,
+  //   partners,
+  //   headers,
+  //   serviceCards,
+  //   caseStudies,
+  //   accordions,
+  //   bios,
+  //   testimonials,
+  // } = props
+
   // console.log(testimonials)
 
   // Landing & CTA
