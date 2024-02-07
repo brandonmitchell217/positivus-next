@@ -48,7 +48,9 @@ export default function Footer() {
           <ul className="hidden lg:flex items-center space-x-5 lg:text-2xl xl:text-3xl">
             {socialLinks.map((link) => (
               <li key={link.label}>
-                <Link href={link.url}>{link.icon}</Link>
+                <Link href={link.url} target="_blank">
+                  {link.icon}
+                </Link>
               </li>
             ))}
           </ul>

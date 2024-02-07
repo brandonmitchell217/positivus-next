@@ -16,6 +16,7 @@ export default function TeamBio({
       <div className="relative flex items-end gap-2 mb-4">
         <Link
           href="https://linkedin.com"
+          target="_blank"
           className="absolute -top-4 -right-4 sm:top-0 sm:right-0 bg-dark text-green p-1.5 rounded-full"
         >
           <LinkedinIcon size={20} />
