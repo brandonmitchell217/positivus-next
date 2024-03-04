@@ -2,7 +2,6 @@
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import router, { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 
@@ -36,6 +35,7 @@ export default function Nav() {
       document.body.style.overflow = 'auto'
     }
   }, [isOpen, matches])
+
   return (
     <nav className="relative z-40 top-0 left-0 right-0 pt-[30px] lg:pt-[60px] text-dark">
       <div className="container flex justify-between items-center">
@@ -104,11 +104,14 @@ export default function Nav() {
                     <Button
                       href={link.path}
                       className="bg-white !text-dark hover:!bg-dark hover:!text-white block"
+                      onClick={() => setIsOpen(false)}
                     >
                       {link.name}
                     </Button>
                   ) : (
-                    <Link href={link.path}>{link.name}</Link>
+                    <Link href={link.path} onClick={() => setIsOpen(false)}>
+                      {link.name}
+                    </Link>
                   )}
                 </li>
               ))}
